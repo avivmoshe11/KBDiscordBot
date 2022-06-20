@@ -1,7 +1,7 @@
 const ytdl = require("ytdl-core");
 const ytSearch = require("yt-search");
 const prefix = require("../bot");
-const { joinVoiceChannel } = require("@discordjs/voice");
+const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require("@discordjs/voice");
 const queue = new Map();
 
 module.exports.run = async (client, msg, args) => {
@@ -51,7 +51,6 @@ module.exports.run = async (client, msg, args) => {
 
       queue.set(msg.guild.id, queue_constructor);
       queue_constructor.songs.push(song);
-
       try {
         const connection = await joinVoiceChannel({
           channelId: voice_channel.id,
@@ -77,18 +76,25 @@ const video_player = async (guild, song) => {
   const song_queue = queue.get(guild.id);
 
   if (!song) {
-    song_queue.voice_channel.leave();
+    //song_queue.voice_channel.leave();
     queue.delete(guild.id);
     return;
   }
+  const player = createAudioPlayer();
   const stream = ytdl(song.url, { filter: "audioonly" });
+  let resource = createAudioResource(stream);
   console.log(typeof song_queue, song_queue);
-  song_queue.connection.subscriptions.set(stream, { seek: 0, volume: 0.5 });
-  //.on("finish", () => {
-  //song_queue.songs.shift();
-  // video_player(guild, song_queue.songs[0]);
-  //  });
+  song_queue.connection.subscribe(player);
+  player.addListener("stateChange", (oldOne, newOne) => {
+    if (newOne.status == "idle") {
+      console.log("The song finished");
+      song_queue.songs.shift();
+      video_player(guild, song_queue.songs[0]);
+    }
+  });
+
   await song_queue.text_channel.send(`🎶 now playing **${song.title}**`);
+  player.play(resource);
 };
 
 module.exports.help = {
@@ -96,3 +102,7 @@ module.exports.help = {
   description: "makes the bot sing",
   aliases: ["p", "skip", "stop"],
 };
+// .on("finish", () => {
+//   song_queue.songs.shift();
+//   video_player(guild, song_queue.songs[0]);
+// });
