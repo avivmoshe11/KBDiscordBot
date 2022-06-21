@@ -35,7 +35,6 @@ async function botname(client, msg) {
   let guilds = client.guilds.cache;
   let currentguild = msg.guildId;
   let name;
-  console.log(currentguild);
   for (let [key, value] of guilds) {
     if (key == currentguild) {
       //name = await value.members.guild.members.cache.get("987439876720971796").nickname;
