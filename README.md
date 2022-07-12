@@ -2,8 +2,6 @@
 
 **KBDiscordBot** is a dynamic bot for discord, using the *discord.js* v13 module.
 
-![alt text](https://github.com/avivmoshe11/KBDiscordBot/blob/master/src/riksGBJ.png?raw=true)
-
 
 
 # Discord.js
@@ -39,3 +37,4 @@ For further information about **discord.js** module [discord.js website](https:/
 `!!help <args?>`
 * ping pong command to indicate the bot is currently responsive to your server.
 
+![alt text](https://github.com/avivmoshe11/KBDiscordBot/blob/master/src/riksGBJ.png?raw=true)
