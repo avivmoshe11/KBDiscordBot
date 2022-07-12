@@ -14,6 +14,10 @@
 
 For further information about **discord.js** module [discord.js website](https://discord.js.org/#/)
 
+## What is a discord bot
+
+A **bot** is an automated Discord account. It utilises the Discord API. They have a "BOT" tag next to their username. They can be added through the API. Bots typically follow a command structure, where a user sends a prefixed message and the bot reponds, though bots can work in many different ways.
+
 ## Requirements
 
 * Discord bot Token [Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
