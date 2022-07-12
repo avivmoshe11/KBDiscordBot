@@ -2,6 +2,8 @@
 
 **KBDiscordBot** is a dynamic bot for discord, using the *discord.js* v13 module.
 
+![alt text](https://github.com/avivmoshe11/KBDiscordBot/blob/master/src/riksGBJ.png?raw=true)
+
 
 
 # Discord.js
