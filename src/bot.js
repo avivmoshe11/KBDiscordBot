@@ -21,7 +21,7 @@ for (file of commands) {
   console.log(`${file} has been loaded`);
 }
 const prefix = "!!";
-const version = "1.1";
+const version = "1.3";
 
 client.on("ready", () => {
   console.log("ready!");

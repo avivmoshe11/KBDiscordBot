@@ -1,6 +1,6 @@
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, entersState } = require("@discordjs/voice");
 let play = require("../commands/play");
-
+//leave
 module.exports.run = async (client, msg, args) => {
   let server_queue = await play.help.queue.get(msg.guild.id);
 

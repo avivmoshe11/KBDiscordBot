@@ -4,6 +4,7 @@ const prefix = require("../bot");
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, entersState, AudioPlayer } = require("@discordjs/voice");
 const queue = new Map();
 let player;
+//play
 module.exports.run = async (client, msg, args) => {
   const voice_channel = msg.member.voice.channel;
   if (!voice_channel) return msg.channel.send("you must be in a channel to execute this command!");
