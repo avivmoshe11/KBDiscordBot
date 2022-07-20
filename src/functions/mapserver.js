@@ -13,12 +13,10 @@ module.exports.run = (client, msg, args) => {
     }
   }
   let fixedCategories = filterCatChilds(textChannels, voiceChannels, categories);
-  console.log(fixedCategories);
   return fixedCategories;
 };
 
 function filterCatChilds(textChannels, voiceChannels, categories) {
-  //console.log(textChannels);
   for (let k = 0; k < categories.length; k++) {
     for (let i = 0; i < textChannels.length; i++) {
       if (textChannels[i].parent_id == categories[k].id) {

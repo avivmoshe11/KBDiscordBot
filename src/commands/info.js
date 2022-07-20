@@ -7,11 +7,9 @@ module.exports.run = async (client, msg, args) => {
   name = name ? name : client.user.username;
   const exampleEmbed = new MessageEmbed()
     .setColor("#04a2d5")
-    //.setAuthor({ name: "Kunefa Bot", iconURL: "https://i.kym-cdn.com/photos/images/masonry/001/564/945/0cd.png" })
     .setThumbnail("https://i.kym-cdn.com/photos/images/masonry/001/564/945/0cd.png")
     .setTitle(`${name}'s Commands`)
     .setDescription(`full command list: ${spaces}  `)
-    //.addField("\u200B", " \u200B")
     .addFields(commandlist(client, prefix.modules.prefix))
     .setImage("https://i.imgur.com/riksGBJ.png")
     .setTimestamp()
@@ -37,7 +35,6 @@ async function botname(client, msg) {
   let name;
   for (let [key, value] of guilds) {
     if (key == currentguild) {
-      //name = await value.members.guild.members.cache.get("987439876720971796").nickname;
       name = await value.members.cache.get("987439876720971796").nickname;
     }
   }

@@ -3,7 +3,6 @@ module.exports.run = async (client, msg, args) => {
   const memberChannel = await msg.member.voice.channel;
   const presentedChannel = memberChannel ? `<#${memberChannel.id}>` : `not in voice channel`;
   reason = args.join(", ") ? `${args.join(" ")}` : `not stated`;
-  //console.log(msg.member.voice);
   const exampleEmbed = new MessageEmbed()
     .setColor("#04a2d5")
     .setTitle(`${msg.author.tag} needs your help!`)
